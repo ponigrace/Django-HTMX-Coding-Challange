@@ -1,8 +1,8 @@
 node_modules
 .venv
+.idea
 
 # Django #
-.env
 *.log
 *.pot
 *.pyc

@@ -25,7 +25,7 @@ class UserInvitation(models.Model):
     def send_invitation_email(self):
         send_mail(
             "You have been invited to join our platform",
-            f"Click here to join: { settings.SENDING_DOMAIN }/invite/{self.id}",
+            f"Click here to join: { settings.SENDING_DOMAIN }/invite/?token={self.id}",
             "Kind regards, The Team",
             [self.email],
         )
