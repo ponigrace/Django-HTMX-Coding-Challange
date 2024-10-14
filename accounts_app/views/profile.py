@@ -16,4 +16,7 @@ class ProfileView(LoginRequiredMixin, View):
         if form.is_valid():
             form.save()
 
-        return render(request, "accounts_app/profile.html", {"form": form, "invite_user_form": invite_user_form})
+        context = {"form": form, "invite_user_form": invite_user_form}
+        response = render(request, "accounts_app/profile.html", context)
+        response['HX-Refresh'] = "true"
+        return response
